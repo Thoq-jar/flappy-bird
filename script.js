@@ -125,6 +125,39 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+canvas.addEventListener('touchstart', function (event) {
+    if (!gameStarted) {
+        gameStarted = true;
+    }
+    velocity = jump;
+});
+
+canvas.addEventListener('touchend', function (event) {
+    velocity = jump;
+});
+
+document.addEventListener('keydown', function (event) {
+    if (event.code === 'Space') {
+        if (!gameStarted) {
+            gameStarted = true; // Start the game when Space is pressed
+        } else {
+            velocity = jump; // Otherwise, jump if the game is already running
+        }
+    }
+
+    if (event.code === 'KeyC') {
+        // Open cheeto image in a new tab when 'C' key is pressed
+        document.documentElement.requestFullscreen();
+        window.open('cheeto.png', '_blank');
+    }
+});
+
+document.getElementById('cheetosConstantlyButton').addEventListener('click', function () {
+    // Open cheeto image in a new tab when cheetos button is clicked
+    document.documentElement.requestFullscreen();
+    window.open('cheeto.png', '_blank');
+});
+
 document.getElementById('cheetosConstantlyButton').addEventListener('click', function () {
     // Open cheeto image in a new tab when cheetos button is clicked
     window.open('cheeto.png', '_blank');
