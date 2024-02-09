@@ -165,4 +165,11 @@ document.getElementById('cheetosConstantlyButton').addEventListener('click', fun
     image.requestFullscreen();
 });
 
+canvas.addEventListener('click', function (event) {
+    if (!gameStarted) {
+        gameStarted = true; // Start the game if not started
+    }
+    velocity = jump; // Bird jumps when clicked
+});
+
 update();
